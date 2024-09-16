@@ -8,23 +8,9 @@ import os
 load_dotenv()
 os.getenv("GEMINI_API_KEY")
 
-from langchain_google_genai import (
-    ChatGoogleGenerativeAI,
-    HarmBlockThreshold,
-    HarmCategory,
-)
+from langchain_ollama import ChatOllama
 
-llm = ChatGoogleGenerativeAI(
-    model="gemini-1.0-pro",
-    google_api_key=os.getenv("GEMINI_API_KEY"),
-    temperature=0.1,
-    safety_settings={
-        HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT: HarmBlockThreshold.BLOCK_NONE,
-        HarmCategory.HARM_CATEGORY_HARASSMENT: HarmBlockThreshold.BLOCK_NONE,
-        HarmCategory.HARM_CATEGORY_HATE_SPEECH: HarmBlockThreshold.BLOCK_NONE,
-        HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT: HarmBlockThreshold.BLOCK_NONE,
-    },
-)
+llm = ChatOllama(model="gemma2", base_url="http://localhost:11434")
 
 crew=Crew(
     agents=[planner,writer,editor],
