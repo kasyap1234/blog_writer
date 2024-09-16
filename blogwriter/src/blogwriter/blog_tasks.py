@@ -14,7 +14,7 @@ class BlogTasks():
    
     def write(self,agent):
         return Task(
-            description="1. Use the content plan to craft a well detailed,technical and compelling blog post on {topic}, the {topic} should be explained in a detailed manner with real life examples . ",
+            description="1. Use the content plan to craft a well detailed,technical and compelling blog post on {topic},it should be explained in a detailed manner with real life examples . ",
             expected_output="A well-written detailed blog post in markdown format, ready for publication, each section should have 2 or 3 paragraphs.",
             agent=agent
         )

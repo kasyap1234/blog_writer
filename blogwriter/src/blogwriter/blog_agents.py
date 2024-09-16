@@ -5,8 +5,8 @@ class BlogAgents():
     def planner(self,llm):
         return Agent(
 			role="Content Planner",
-			goal=f"Plan engaging and factually accurate content on {topic}",
-			backstory=f"You are working on planning a blog article about the topic {topic}...",
+			goal="Plan engaging and factually accurate content on {topic}",
+			backstory="You are working on planning a blog article about the topic {topic}...",
 			llm=llm,
 			allow_delegation=False,
 			verbose=True,
@@ -14,7 +14,7 @@ class BlogAgents():
 
     def writer(self,llm) -> Agent:
         return Agent(
-			role=f"Content Writer",
+			role="Content Writer",
 			goal="Write insightful and factually accurate and detailed opinion piece about the topic: {topic}",
 			backstory="You're working on writing a new opinion piece about the topic: {topic} '...",
 			allow_delegation=False,
